@@ -13,6 +13,14 @@ module.exports = {
   devServer: {
     port: 3001,
     hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  },
+  builtins: {
+    react: {
+      runtime: 'automatic', // ✅ 자동 import 설정 (React 17+ 스타일)
+    },
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -20,14 +28,22 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./Button": "./src/Button.tsx",
+        './Counter': './src/Counter.tsx',
+        './store': './src/storeProxy',
       },
       shared: {
-        react: { singleton: true },
-        "react-dom": { singleton: true },
+        react: { singleton: true, requiredVersion: false },
+        'react-dom': { singleton: true, requiredVersion: false },
+        zustand: { singleton: true, requiredVersion: false },
       },
     }),
   ],
-  resolve: { extensions: [".tsx", ".ts", ".js"] },
+  resolve: { 
+    extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      shared: path.resolve(__dirname, '../shared'),
+    },
+  },
   module: {
     rules: [
       {

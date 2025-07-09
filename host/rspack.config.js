@@ -13,7 +13,7 @@ module.exports = {
   mode: "development",
   devServer: {
     port: 3000,
-    hot: true,
+    hot: true
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -22,13 +22,19 @@ module.exports = {
         remote: "remote@http://localhost:3001/remoteEntry.js",
       },
       shared: {
-        react: { singleton: true },
-        "react-dom": { singleton: true },
+        react: { singleton: true, requiredVersion: false },
+        'react-dom': { singleton: true, requiredVersion: false },
+        zustand: { singleton: true, requiredVersion: false },
       },
     }),
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
   ],
-  resolve: { extensions: [".tsx", ".ts", ".js"] },
+  resolve: { 
+    extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      shared: path.resolve(__dirname, '../shared'),
+    },
+  },
   module: {
     rules: [
       {
