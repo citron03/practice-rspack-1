@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "rspack serve --config rspack.config.js",
-    "build": "rspack --config rspack.config.js"
+    "build": "rspack --config rspack.config.js",
+    "lint": "biome check ."
   },
   "keywords": [],
   "author": "",
