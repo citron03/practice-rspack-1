@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
-    "lint": "turbo lint"
+    "lint": "turbo lint",
+    "prune": "mkdir -p out && turbo prune --scope=host --docker"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.1",
