@@ -2,3 +2,4 @@ packages:
   - "host"
   - "remote"
   - "shared"
+  - "vanilla-remote"

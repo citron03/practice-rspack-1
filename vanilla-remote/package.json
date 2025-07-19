@@ -1,0 +1,12 @@
+{
+  "name": "vanilla-remote",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rspack build",
+    "dev": "rspack serve"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^0.7.4",
+    "@rspack/core": "^0.7.4"
+  }
+}

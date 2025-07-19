@@ -20,6 +20,7 @@ module.exports = {
       name: "host",
       remotes: {
         remote: "remote@http://localhost:3001/remoteEntry.js",
+        vanilla_remote: "vanilla_remote@http://localhost:3003/remoteEntry.js",
       },
       shared: {
         react: { singleton: true, requiredVersion: false },
