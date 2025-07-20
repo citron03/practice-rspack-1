@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  host:
+    build:
+      context: .
+      dockerfile: host/Dockerfile
+    ports:
+      - "8080:80"
+    container_name: host_app
+
+  remote:
+    build:
+      context: .
+      dockerfile: remote/Dockerfile
+    ports:
+      - "8081:80"
+    container_name: remote_app
+
+  vanilla-remote:
+    build:
+      context: .
+      dockerfile: vanilla-remote/Dockerfile
+    ports:
+      - "8082:80"
+    container_name: vanilla_remote_app
